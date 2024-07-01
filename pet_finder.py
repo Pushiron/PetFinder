@@ -40,4 +40,4 @@ async def send_location_via_telegram(pet_name, phone, latitude, longitude, name)
     await send_location(pet_name, phone, latitude, longitude, name)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, port=5000)
