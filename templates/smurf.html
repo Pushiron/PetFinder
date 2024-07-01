@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Потеряшка Смурф</title>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById('latitude').value = position.coords.latitude;
+            document.getElementById('longitude').value = position.coords.longitude;
+        }
+    </script>
+</head>
+<body onload="getLocation()">
+
+    <h1>Имя питомца: Смурфик (Смурф)</h1>
+    <p>Адрес проживания: г. Иркутск, п. Горный, ул. Баргузинская, д 12</p>
+    <p>Номер для связи: <a href="tel:+79996846409">+79996846409</a></p>
+
+    <form method="POST">
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="phone">Ваш номер телефона:</label>
+        <input type="text" id="phone" name="phone" required><br><br>
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+        <button type="submit">Отправить контактные данные</button>
+    </form>
+
+    <p>Спасибо, что нашли моего питомца! Я свяжусь с вами по указанному вами номеру!</p>
+    <p>При нажатии кнопки "Отправить контактные данные" вы также отправляете мне своё местоположение, чтобы я знал,</p>
+    <p>где находится мой питомец.</p>
+    <p>Если вы не хотите отпралять геолокацию, то просто позвоните по указанному номеру выше</p>
+
+</body>
+</html>
